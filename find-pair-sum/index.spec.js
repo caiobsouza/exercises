@@ -1,7 +1,5 @@
 const { expect } = require('chai');
-const { after } = require('mocha');
 const find = require('./');
-const brute = require('./alternatives/brute-force');
 
 describe('Find pair that sums up to k', () => {
   const array = [4, 5, 1, -3, 6];
@@ -20,15 +18,5 @@ describe('Find pair that sums up to k', () => {
 
   it('should return true for [5, 5, 5, 5, 5] and k=10', () => {
     expect(find([5, 5, 5, 5, 5], 10)).to.be.true;
-  });
-
-  after(() => {
-    const big = [1, 2, 3, -1, -2, -3, 1, 2, 3, -1, -2, -3, 5, 6, 1, 2, 3, -1, -2, -3, 1, 2, 3, -1, -2, -3];
-    console.time('find()');
-    find(big, 11);
-    console.timeEnd('find()');
-    console.time('brute()');
-    brute(big, 11);
-    console.timeEnd('brute()');
   });
 });
